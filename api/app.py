@@ -4,9 +4,9 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net"
 mongo = PyMongo(app)
 
-def get_db_client(host="mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net", port=27017):
-        client = MongoClient(host=host)
-        return client
+# def get_db_client(host="mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net", port=27017):
+#         client = MongoClient(host=host)
+#         return client
 
 @app.route("/")
 def home():
