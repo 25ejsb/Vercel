@@ -12,15 +12,15 @@ def get_db_client(host="mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkm
 
 @app.get("/")
 def home():
-    #create one
+    # #create one
     mongo.db.users.insert_one({"username": "Yes"})
-    # update one
-    mongo.db.users.find_one_and_update({"username": "Yes"}, {"$set": {
-        "username": "YEs"
-    }})
-    # delete one
-    mongo.db.users.find_one_and_delete({"username": "YEs"})
-    print("Here 2")
+    # # update one
+    # mongo.db.users.find_one_and_update({"username": "Yes"}, {"$set": {
+    #     "username": "YEs"
+    # }})
+    # # delete one
+    # mongo.db.users.find_one_and_delete({"username": "YEs"})
+    # print("Here 2")
     return render_template("index.html")
 
 if __name__ == "__main__":
