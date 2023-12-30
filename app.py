@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 from flask_pymongo import PyMongo, MongoClient
+from flask_bootstrap import Bootstrap
 app = Flask(__name__)
+Bootstrap(app)
 app.config["MONGO_URI"] = "mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net"
 mongo = PyMongo(app)
 
@@ -8,7 +10,7 @@ mongo = PyMongo(app)
 #         client = MongoClient(host=host)
 #         return client
 
-@app.route("/")
+@app.get("/")
 def home():
     # create one
     # try:
