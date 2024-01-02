@@ -1,21 +1,14 @@
 from flask import Flask, render_template
-import pymongo, certifi, ssl
-ca = certifi.where()
-from flask_bootstrap import Bootstrap
+from flask_pymongo import PyMongo, MongoClient
+import certifi
 app = Flask(__name__)
-Bootstrap(app)
-mongo_url = "mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net/Flask?retryWrites=true&w=majority"
-client = pymongo.MongoClient(mongo_url, tls=True, tlsCAFile=certifi.where())
-collection_name = client.db.Flask.users
+app.config["MONGO_URI"] = "mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net/Flask?authSource=admin"
+mongo = PyMongo(app, tlsCAFile=certifi.where())
 
-import dns.resolver
-dns.resolver.default_resolver=dns.resolver.Resolver(configure=False)
-dns.resolver.default_resolver.nameservers=['8.8.8.8'] 
-
-@app.get("/")
+@app.route("/")
 def home():
     # #create one
-    print(collection_name.insert_one({"Username": "Eitan", "password": "Random"}))
+    print(mongo.db.users.insert_one({"Yo": "Hello"}))
     return render_template("index.html")
 
 if __name__ == "__main__":
