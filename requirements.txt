@@ -1,5 +1,6 @@
 Flask==2.1.3
 Flask-PyMongo
+urllib3
 certifi
 dnspython
 Werkzeug==2.2.2
