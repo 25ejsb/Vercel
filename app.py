@@ -3,8 +3,8 @@ from flask_pymongo import PyMongo, MongoClient
 import certifi
 app = Flask(__name__)
 ca = certifi.where()
-app.config["MONGO_URI"] = "mongodb+srv://ebroch:25Greenseed@flask.01kp9mt.mongodb.net/Flask?authSource=admin"
-mongo = PyMongo(app, tlsCAFile=ca)
+app.config["MONGO_URI"] = "mongodb+srv://ebroch:25Greenseed@flask.01kp9mt.mongodb.net/Flask?authSource=admin&tlsCAFile=ca"
+mongo = PyMongo(app)
 
 @app.route("/")
 def home():
