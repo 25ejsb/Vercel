@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_pymongo import PyMongo, MongoClient
-import certifi
+import certifi, urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 app = Flask(__name__)
 ca = certifi.where()
 app.config["MONGO_URI"] = "mongodb+srv://eitanbrochstein:25Greenseed@cluster0.rhtkmvj.mongodb.net/Flask?authSource=admin"

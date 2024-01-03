@@ -5,3 +5,7 @@ entrypoint: gunicorn -b 0.0.0.0:8080 app:app
 runtime_config:
     operating_system: "ubuntu22"
     runtime_version: "3.11"
+
+libraries:
+  - name: ssl
+    version: latest
